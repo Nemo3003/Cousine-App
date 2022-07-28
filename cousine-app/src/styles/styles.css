@@ -1,3 +1,5 @@
+
+
 .footer {
     background-color: #414141;
     width: 100%;
@@ -161,3 +163,31 @@
       margin-left: 0;
     }
   }
+/*Background*/
+body {
+  background-image: url("../assets/cute-kitties.webp");
+}
+
+.container-fluid{
+  background-color: #f2f2f2;
+  padding: 0;
+  margin: 0;
+  border-radius: .5rem;
+  text-align: center;
+}
+/*MUSIC HOME*/
+.music-home{
+  background-color: #f2f2f2;
+  padding: 0;
+  margin: 2rem;
+  border-radius: .5rem;
+  text-align: center;
+}
+/*RECIPES HOME*/
+.container-recipes{
+  background-color: #f2f2f2;
+  padding: 0;
+  margin: 2rem;
+  border-radius: .5rem;
+  text-align: center;
+}

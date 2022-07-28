@@ -1,13 +1,17 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
+import milada1 from '../assets/milada1.jpg';
+import milada2 from '../assets/milada2.jpg';
+import milada3 from '../assets/milada3.jpg';
+import '../styles/carousel.css';
 
 export const CarouselUser = () => {
   return (
     <Carousel>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="../assets/carousel1.jpg"
+          className="d-block"
+          src={milada1}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -18,7 +22,7 @@ export const CarouselUser = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src={milada2}
           alt="Second slide"
         />
 
@@ -30,7 +34,7 @@ export const CarouselUser = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src={milada3}
           alt="Third slide"
         />
 

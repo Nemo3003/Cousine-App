@@ -7,11 +7,11 @@ export const NavbarUse =()=> {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Cousine App</Navbar.Brand>
+          <Navbar.Brand href="/">Cousine App</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Music</Nav.Link>
-            <Nav.Link href="#pricing">Recipes</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/music">Music</Nav.Link>
+            <Nav.Link href="/recipe">Recipes</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

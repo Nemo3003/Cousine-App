@@ -1,9 +1,35 @@
 import React from 'react'
+import Footer from '../Footer'
+import { NavbarUse } from '../NavbarUse'
+import RecipeAdd from './RecipeAdd'
 
-const RecipeHome = () => {
+
+export const RecipeHome = () => {
   return (
-    <div>RecipeHome</div>
+    <>
+      <NavbarUse/>
+      <div className="container-recipes">
+      <div className="container">
+      <h1>My recipes</h1>
+      <div className="row">
+        <RecipeAdd/>
+        <div className="col-sm">
+        <h3>Latest recipes</h3>
+          <div>
+            <h4>recipe1</h4>
+         </div>
+          <div>
+            <h4>recipe2</h4>
+          </div>
+          <div>
+            <h4>recipe3</h4>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+      <Footer />
+    </>
   )
 }
 
-export default RecipeHome

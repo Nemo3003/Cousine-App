@@ -1,0 +1,6 @@
+img{
+    display: flex;
+    margin: 1rem auto;
+    max-width: 50rem;
+    max-height: 40rem;
+}

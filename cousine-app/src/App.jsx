@@ -5,7 +5,7 @@ import { MusicHome } from './components/music/MusicHome'
 import { Login } from './components/auth/Login'
 import { Register } from './components/auth/Register'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RecipeHome from './components/recipe/RecipeHome';
+import {RecipeHome} from './components/recipe/RecipeHome';
 
 
 function App() {

@@ -1,0 +1,9 @@
+.container-music{
+    background-color: antiquewhite;
+    text-align: center;
+    border-radius: .5rem;
+    margin-top: 2rem;
+}
+#controls{
+    display: flex;
+}

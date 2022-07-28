@@ -2,7 +2,29 @@ import React from 'react'
 
 const RecipePreview = () => {
   return (
-    <div>RecipePreview</div>
+    <div className="container-fluid">
+        <h1>Latest Recipes</h1>
+        <div className="row">
+          <div className="col-sm">
+            <h3>First recipe</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div className="col-sm">
+            <h3>Second recipe</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div className="col-sm">
+            <h3>Second recipe</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+          </div>
+      </div>
   )
 }
 
