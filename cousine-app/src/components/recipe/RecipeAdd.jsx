@@ -3,6 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const RecipeAdd = () => {
+
+  //onst [title, setTitle] = useState('')
+
   return (
     <div className="col-sm">
         <Form>

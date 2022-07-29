@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../Footer'
 import { NavbarUse } from '../NavbarUse'
+import PreviousRecipe from './PreviousRecipe'
 import RecipeAdd from './RecipeAdd'
 
 
@@ -28,6 +29,7 @@ export const RecipeHome = () => {
         </div>
       </div>
       </div>
+      <PreviousRecipe/>
       <Footer />
     </>
   )
