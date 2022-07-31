@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '../../hooks/useForm';
 import swal from "sweetalert";
+import {PreviousRecipe} from './PreviousRecipe';
 
 
 
@@ -20,6 +21,18 @@ const RecipeAdd = () => {
         user: '',
         
     });
+    //add this all to an object to be sent to anther component
+    const [recipe, setRecipe] = useState({
+        name: '',
+        description: '',
+        ingredients: '',
+        steps: '',
+        image: '',
+        category: '',
+        time: '',
+        date: '',
+        user: '',
+    });
   const onFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -30,6 +43,7 @@ const RecipeAdd = () => {
     console.log(data);
   }
 
+<PreviousRecipe recipes={onFormSubmit}/>
   return (
     <div className="col-sm">
       <Form onSubmit={onFormSubmit}>

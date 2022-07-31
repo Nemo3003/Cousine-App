@@ -4,12 +4,24 @@ import swal from "sweetalert";
 import "../../styles/styles.css";
 
 
-const PreviousRecipe = () => {
+const PreviousRecipe = ({recipes}) => {
 
+  const [recipesList, setRecipesList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setRecipesList(recipes);
+    setLoading(false);
+  }, function() {
+    setRecipesList(recipes);
+    setLoading(false);
+  }
+  );
   return (
     <>
-    {/**Show the recipe list*/}
-   
+    {/**Show the recipe list sent from the RecipeAdd*/}
+
+
     </>
   );
 };
