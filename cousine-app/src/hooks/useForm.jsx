@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const useForm = (initialState = {}) => {
-  const [values, setValues] = useState(initialState);
+export const useForm = ( initialForm = {} ) => {
+  
+    const [ formState, setFormState ] = useState( initialForm );
 
-  const reset = () => {
-    setValues(initialState);
-  };
+    const onInputChange = ({ target }) => {
+        const { name, value } = target;
+        setFormState({
+            ...formState,
+            [ name ]: value,
+     
 
-  const handleInputChange = ({ target }) => {
-    setValues({
-      ...values,
-      [target.name]: target.value,
-    });
-  };
-
-  return [values, handleInputChange, reset];
-};
+        });
+    }
+//agregamos on reset en el form para que se borre luego de agregar al todo
+    const onResetForm = () => {
+        setFormState( initialForm );
+    }
+//tercero usamos el hook del form
+    return {
+        ...formState,
+        formState,
+        onInputChange,
+        onResetForm,
+    }
+}
