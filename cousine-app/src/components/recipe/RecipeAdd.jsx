@@ -3,7 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from '../../hooks/useForm';
 import swal from "sweetalert";
-import {PreviousRecipe} from './PreviousRecipe';
+import PreviousRecipe from './PreviousRecipe';
+import { useState } from 'react';
+import { RecipeHome } from './RecipeHome';
+import { useEffect } from 'react';
+
 
 
 
@@ -23,16 +27,17 @@ const RecipeAdd = () => {
     });
     //add this all to an object to be sent to anther component
     const [recipe, setRecipe] = useState({
-        name: '',
-        description: '',
-        ingredients: '',
-        steps: '',
-        image: '',
-        category: '',
-        time: '',
-        date: '',
-        user: '',
-    });
+      name: '',
+      description: '',
+      ingredients: '',
+      steps: '',
+      image: '',
+      category: '',
+      time: '',
+      date: '',
+      user: '',
+  }
+  );
   const onFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -41,9 +46,26 @@ const RecipeAdd = () => {
       data[key] = value;
     });
     console.log(data);
+    setRecipe(data);
+    
+    onResetForm();
   }
+  const handleAddRecipe = () => {
+    if (formState.name === '' || formState.description === '' || formState.ingredients === '' || formState.steps === '' || formState.image === '' || formState.category === '' || formState.time === '' || formState.date === '' || formState.user === '') {
+      swal("Please fill in all fields", "", "error");
+    } else {
+      swal("Recipe added successfully", "", "success");
+    }
+  }
+  useEffect(
+    () => {
+      console.log(recipe);
 
-<PreviousRecipe recipes={onFormSubmit}/>
+    },
+    [recipe]
+  );
+  <RecipeHome props={recipe}/>
+
   return (
     <div className="col-sm">
       <Form onSubmit={onFormSubmit}>
@@ -83,7 +105,7 @@ const RecipeAdd = () => {
           <Form.Label>User</Form.Label>
           <Form.Control type="text" name="user" value={formState.user} onChange={onInputChange} placeholder="Enter user" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={handleAddRecipe}>
           Submit
         </Button >
       
@@ -91,9 +113,9 @@ const RecipeAdd = () => {
           Reset
         </Button>
       </Form>
-
-      </div>
-  )
+    </div>
+  );
 }
+
 
 export default RecipeAdd
