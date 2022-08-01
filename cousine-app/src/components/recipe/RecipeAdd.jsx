@@ -28,6 +28,7 @@ const RecipeAdd = () => {
     });
     //add this all to an object to be sent to anther component
     const [recipe, setRecipe] = useState({
+      //save it all in localstorage
       name: '',
       description: '',
       ingredients: '',
@@ -37,13 +38,20 @@ const RecipeAdd = () => {
       time: '',
       date: '',
       user: '',
-  }
-  );
+    });
+
   let { name, description, ingredients, steps, image, category, time, date, user } = recipe;
   const [recipes, setRecipes] = useState([]);
 
+  
+
   const onFormSubmit = (e) => {
     e.preventDefault();
+    //save it all in the localstorage
+    setRecipes([...recipes, recipe]);
+    //save it all in the localstorage
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => {
@@ -52,11 +60,11 @@ const RecipeAdd = () => {
     console.log(data);
     setRecipe(data);
     onResetForm();
-  }
-  let recipeList = recipes.map(recipe => {
-    return <PreviousRecipe key={recipe.id} name={recipe.name} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} image={recipe.image} category={recipe.category} time={recipe.time} date={recipe.date} user={recipe.user} />
-  }
-  )
+    swal("Recipe added!", "You added a new recipe!", "success");}
+    //also save it to the localstorage
+   <PreviousRecipe recipes={recipes} />
+    console.log("lol"+recipes);
+  
 
   const handleAddRecipe = () => {
     if (formState.name === '' || formState.description === '' || formState.ingredients === '' || formState.steps === '' || formState.image === '' || formState.category === '' || formState.time === '' || formState.date === '' || formState.user === '') {
@@ -65,19 +73,11 @@ const RecipeAdd = () => {
       swal("Recipe added successfully", "", "success");
     }
   }
-  
-//use localstorage to store the recipes
-  useEffect(() => {
-    const data = localStorage.getItem('recipes');
-    if (data) {
-      setRecipes(JSON.parse(data));
-    }
-  }, []);
 
   return (
     <>
     <div className="container">
-      {recipeList}
+      
       <Form onSubmit={onFormSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -125,7 +125,8 @@ const RecipeAdd = () => {
 
     </div>
     <div className="col-sm">
-    <PreviousRecipe name={name} description={description} ingredients={ingredients} steps={steps} image={image} category={category} time={time} date={date} user={user} />
+      {/**All fields must be stored in localstorage */
+      }
     </div>
     </>
   );

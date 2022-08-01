@@ -5,51 +5,52 @@ import "../../styles/styles.css";
 import { useForm } from '../../hooks/useForm';
 
 
-const PreviousRecipe = ({name, description, ingredients,steps, image, category, time,date, user}) => {
+const PreviousRecipe = ({recipes="one"}) => {
 
+  const [isLoading, setIsLoading] = useState(false);
   
+  useEffect(() => {
+    switch (recipes.length) {
+      case 0:
+        setIsLoading(true);
+        break;
+      default:
+        setIsLoading(false);
+        break;
+    }}, []);
 
+  if(isLoading){
+    return <p>Is loading!</p>
+  }
+console.log('mine' +recipes)
+//TODO: I need to figure out how to pass default values to the recipes
   
   return(
     <>
-      <div className="container-recipes">
-        <div className="container">
-          <h1>Added recipes</h1>
-          <div className="row">
-            <div className="col-sm">
-              <h3>All my recipes</h3>
-              <div>
-                <h4>Titulo: {name}</h4>
-              </div>
-              <div>
-                <h4>Description: {description}</h4>
-              </div>
-              <div>
-                <h4>Ingredientes: {ingredients}</h4>
-              </div>
-              <div>
-                <h4>Pasos: {steps}</h4>
-              </div>
-              <div>
-                <h4>Imagen: {image}</h4>
-              </div>
-              <div>
-                <h4>Categoria: {category}</h4>
-              </div>
-              <div>
-                <h4>Duracion: {time}</h4>
-              </div>
-              <div>
-                <h4>Fecha: {date}</h4>
-              </div>
-              <div>
-                <h4>Usuario: {user}</h4>
+    {/*display what we got from the props*/}
+    
+    {
+      recipes.map(
+        (recipe, index) => {
+          return (
+            <div className="col-sm" key={index}>
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">{recipe.name}</h5>
+                  <p className="card-text">{recipe.description}</p>
+                  <p className="card-text">{recipe.ingredients}</p>
+                  <p className="card-text">{recipe.steps}</p>
+                  <p className="card-text">{recipe.image}</p>
+                  <p className="card-text">{recipe.category}</p>
+                  <p className="card-text">{recipe.time}</p>
+                  <p className="card-text">{recipe.date}</p>
+                  <p className="card-text">{recipe.user}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
+          );})
+    }
+      
     </>
   )
 }
