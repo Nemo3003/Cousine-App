@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 
 
 
+
 const RecipeAdd = () => {
 
     const { formState, onInputChange, onResetForm } = useForm({
@@ -38,6 +39,9 @@ const RecipeAdd = () => {
       user: '',
   }
   );
+  let { name, description, ingredients, steps, image, category, time, date, user } = recipe;
+  const [recipes, setRecipes] = useState([]);
+
   const onFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -47,9 +51,13 @@ const RecipeAdd = () => {
     });
     console.log(data);
     setRecipe(data);
-    
     onResetForm();
   }
+  let recipeList = recipes.map(recipe => {
+    return <PreviousRecipe key={recipe.id} name={recipe.name} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} image={recipe.image} category={recipe.category} time={recipe.time} date={recipe.date} user={recipe.user} />
+  }
+  )
+
   const handleAddRecipe = () => {
     if (formState.name === '' || formState.description === '' || formState.ingredients === '' || formState.steps === '' || formState.image === '' || formState.category === '' || formState.time === '' || formState.date === '' || formState.user === '') {
       swal("Please fill in all fields", "", "error");
@@ -57,17 +65,19 @@ const RecipeAdd = () => {
       swal("Recipe added successfully", "", "success");
     }
   }
-  useEffect(
-    () => {
-      console.log(recipe);
-
-    },
-    [recipe]
-  );
-  <RecipeHome props={recipe}/>
+  
+//use localstorage to store the recipes
+  useEffect(() => {
+    const data = localStorage.getItem('recipes');
+    if (data) {
+      setRecipes(JSON.parse(data));
+    }
+  }, []);
 
   return (
-    <div className="col-sm">
+    <>
+    <div className="container">
+      {recipeList}
       <Form onSubmit={onFormSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -108,12 +118,16 @@ const RecipeAdd = () => {
         <Button variant="primary" type="submit" onClick={handleAddRecipe}>
           Submit
         </Button >
-      
         <Button variant="secondary" type="button" onClick={onResetForm}>
           Reset
         </Button>
       </Form>
+
     </div>
+    <div className="col-sm">
+    <PreviousRecipe name={name} description={description} ingredients={ingredients} steps={steps} image={image} category={category} time={time} date={date} user={user} />
+    </div>
+    </>
   );
 }
 

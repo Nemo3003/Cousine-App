@@ -7,18 +7,7 @@ import RecipeAdd from './RecipeAdd'
 import RecipePreview from './RecipePreview'
 
 
-export const RecipeHome = (props) => {
-    const [recipe, setRecipe] = useState({
-        name: '',
-        description: '',
-        ingredients: '',
-        steps: '',
-        image: '',
-        category: '',
-        time: '',
-        date: '',
-        user: '',
-    })
+export const RecipeHome = () => {
 
 
   return (
@@ -28,7 +17,9 @@ export const RecipeHome = (props) => {
       <div className="container">
       <h1>My recipes</h1>
       <div className="row">
+      <div className="col-sm">
         <RecipeAdd/>
+      </div>
         <div className="col-sm">
         <h3>Latest recipes</h3>
           <RecipePreview/>
@@ -36,7 +27,7 @@ export const RecipeHome = (props) => {
         </div>
       </div>
       </div>
-      <PreviousRecipe />
+      
       <Footer />
     </>
   )

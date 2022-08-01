@@ -7,6 +7,9 @@ import { useForm } from '../../hooks/useForm';
 
 const PreviousRecipe = ({name, description, ingredients,steps, image, category, time,date, user}) => {
 
+  
+
+  
   return(
     <>
       <div className="container-recipes">
@@ -16,31 +19,31 @@ const PreviousRecipe = ({name, description, ingredients,steps, image, category, 
             <div className="col-sm">
               <h3>All my recipes</h3>
               <div>
-                <h4>{name}</h4>
+                <h4>Titulo: {name}</h4>
               </div>
               <div>
-                <h4>{description}</h4>
+                <h4>Description: {description}</h4>
               </div>
               <div>
-                <h4>{ingredients}</h4>
+                <h4>Ingredientes: {ingredients}</h4>
               </div>
               <div>
-                <h4>{steps}</h4>
+                <h4>Pasos: {steps}</h4>
               </div>
               <div>
-                <h4>{image}</h4>
+                <h4>Imagen: {image}</h4>
               </div>
               <div>
-                <h4>{category}</h4>
+                <h4>Categoria: {category}</h4>
               </div>
               <div>
-                <h4>{time}</h4>
+                <h4>Duracion: {time}</h4>
               </div>
               <div>
-                <h4>{date}</h4>
+                <h4>Fecha: {date}</h4>
               </div>
               <div>
-                <h4>{user}</h4>
+                <h4>Usuario: {user}</h4>
               </div>
             </div>
           </div>
