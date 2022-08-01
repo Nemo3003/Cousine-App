@@ -27,7 +27,6 @@ export const RecipeHome = () => {
         </div>
       </div>
       </div>
-      <PreviousRecipe />
       <Footer />
     </>
   )

@@ -122,11 +122,17 @@ const RecipeAdd = () => {
           Reset
         </Button>
       </Form>
+      {useEffect(() => {
+        if (localStorage.getItem('recipes')) {
+          setRecipes(JSON.parse(localStorage.getItem('recipes')));
+        }
 
+      }, [])}
     </div>
     <div className="col-sm">
       {/**All fields must be stored in localstorage */
       }
+      <PreviousRecipe name={name} description={description} category={category} ingredients={ingredients} date={date} user={user}/>
     </div>
     </>
   );
