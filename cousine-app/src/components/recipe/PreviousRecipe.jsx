@@ -5,24 +5,18 @@ import "../../styles/styles.css";
 import { useForm } from '../../hooks/useForm';
 
 
-const PreviousRecipe = ({name, description, category, ingredients, date, user}) => {
-
+const PreviousRecipe = ({data}) => {
+//Save the data recieved in an asyncronous way
+const [recipe, setRecipe] = useState(data);
   
   return(
     <>
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <h2>titulo: {name}</h2>
-            <hr />
-            <p>descripcion: {description}</p>
-            <p>Categoria: {category}</p>
-            <p>Ingredientes:{ingredients}</p>
-            <p>Fecha: {date}</p>
-            <p>Usuario: {user}</p>
-          </div>
-        </div>
+      <div>
+        <p>Name: {data?.name}</p>
+        <p>priceUnitary: {data?.priceUnitary}</p>
+        <p>description: {data?.description}</p>
       </div>
+    
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PreviousRecipe from './PreviousRecipe'
 
 const RecipePreview = () => {
   return (
@@ -8,7 +9,7 @@ const RecipePreview = () => {
           <div className="col-sm">
             <h3>First recipe</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
           <div className="col-sm">
